@@ -29,7 +29,7 @@ main(int argc, char *argv[]){
 	timespc.tv_sec = 1;
 
 	if((cid = fork()) == 0){
-		//child
+		//this is my child
 		pid = getpid();
 		for(;;){	
 			sop.sem_op = -1;
@@ -46,6 +46,7 @@ main(int argc, char *argv[]){
 	}
 	else{
 		pid = getpid();
+		//parent
 		for(;;){	
 			nanosleep(&timespc, NULL);
 			sop.sem_op =  1;
